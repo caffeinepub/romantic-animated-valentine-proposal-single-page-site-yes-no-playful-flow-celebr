@@ -1,0 +1,85 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-06T17:40:51.992Z",
+  "summary": "The diff adds a single-page Valentine proposal flow with proposal/celebration scenes, animated canvas-based hearts/sparkles, NO-button evasive behavior with teasing messages, global click heart bursts, YES-triggered heart confetti and fade transition, pointer-following heart trail, floating emoji ambience, and global music controls. However, it does not appear to use the specifically required image assets/sprite sheets/icon set, and it violates constraints by changing/adding files that were declared immutable and by adding an unrequested backend actor.",
+  "missing_requirements": [
+    {
+      "id": "REQ-2",
+      "requirement": "Use the provided background texture and sparkle overlay image assets for the dreamy hearts/sparkles layers (valentine-hearts-bg.dim_1920x1080.png and valentine-sparkles-overlay.dim_1920x1080.png).",
+      "reason": "The implementation uses canvas-drawn hearts and sparkles rather than the required static image assets; no references to the required background/overlay image files are shown in the added code.",
+      "evidence": [
+        "frontend/src/components/effects/FloatingHeartsBackground.tsx",
+        "frontend/src/components/effects/SparkleOverlay.tsx"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "requirement": "Include the specified teasing message exactly: \"You can’t escape destiny 😌\".",
+      "reason": "The teasing messages include a similar string but with a straight apostrophe (\"can't\") instead of the specified curly apostrophe (\"can’t\"), so it is not an exact match.",
+      "evidence": [
+        "frontend/src/scenes/ProposalScene.tsx"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "requirement": "Confetti hearts should use the required heart confetti sprite sheet asset (valentine-heart-confetti-sprites.dim_1024x1024.png).",
+      "reason": "The confetti effect is implemented by drawing hearts on a canvas; no sprite sheet is referenced.",
+      "evidence": [
+        "frontend/src/components/effects/HeartConfetti.tsx"
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "requirement": "Occasional floating love emojis should use the required love emoji icon set image asset (valentine-love-emojis.dim_512x512.png).",
+      "reason": "The ambient emoji effect uses Unicode emoji characters, not the required icon set image.",
+      "evidence": [
+        "frontend/src/components/effects/FloatingLoveEmojis.tsx"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Added an empty Motoko backend actor.",
+      "reason": "The BuildRequest is entirely frontend-focused and does not request a backend; adding backend code is unnecessary and not specified.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "description": "Changes/additions to files declared immutable (useActor/useInternetIdentity/main.tsx).",
+      "reason": "Constraints explicitly forbid editing these bootstrapping/hook files, but the diff includes these paths as added files, indicating they were created/overwritten.",
+      "evidence": [
+        "frontend/src/hooks/useActor.ts",
+        "frontend/src/hooks/useInternetIdentity.ts",
+        "frontend/src/main.tsx"
+      ]
+    }
+  ],
+  "confidence": 0.72,
+  "changed_files": [
+    "all_files_summary.json",
+    "backend/main.mo",
+    "frontend-file-summaries.txt",
+    "frontend/index.css",
+    "frontend/index.html",
+    "frontend/src/App.tsx",
+    "frontend/src/components/TeasingMessageToast.tsx",
+    "frontend/src/components/audio/MusicControls.tsx",
+    "frontend/src/components/effects/FloatingHeartsBackground.tsx",
+    "frontend/src/components/effects/FloatingLoveEmojis.tsx",
+    "frontend/src/components/effects/HeartBurst.tsx",
+    "frontend/src/components/effects/HeartConfetti.tsx",
+    "frontend/src/components/effects/PointerHeartTrail.tsx",
+    "frontend/src/components/effects/SparkleOverlay.tsx",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/hooks/usePrefersReducedMotion.ts",
+    "frontend/src/index.css",
+    "frontend/src/main.tsx",
+    "frontend/src/scenes/CelebrationScene.tsx",
+    "frontend/src/scenes/ProposalScene.tsx",
+    "frontend/tailwind.config.js",
+    "project_state.json"
+  ]
+}

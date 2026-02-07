@@ -1,0 +1,275 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Romantic animated Valentine proposal single-page site (YES/NO playful flow + celebration scene)",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Create a responsive single-page Valentine proposal UI with a consistent dreamy romantic theme (palette, glow/sparkles, smooth animations, and consistent headline/body typography).",
+      "acceptanceCriteria": [
+        "Layout looks polished on common mobile widths (e.g., 360–430px) and desktop widths (>=1024px) with no overflow/overlap issues.",
+        "All screens share a consistent palette, typography, spacing, and animation style (dreamy/romantic).",
+        "Animations are smooth and do not cause obvious jank on typical devices (avoid excessive reflows; prefer transform/opacity animations)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "create",
+          "description": "Create the single-page app shell with an internal scene state machine (Proposal -> Celebration) and shared layout styling for the dreamy romantic aesthetic; use shadcn-ui components (e.g., Button) for a modern UI foundation. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "create",
+          "description": "Add global theme tokens (pastel pink/red palette), typography defaults (romantic cursive headline + clean body), and reusable animation utilities (glow, soft float, fade transitions) while keeping animations transform/opacity-focused for performance."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend Tailwind theme with Valentine palette aliases and custom keyframes/animations (glow pulse, gentle float, dreamy fade) used consistently across scenes."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Add a continuous floating-hearts background plus subtle sparkles/glow accents behind content for both Proposal and Celebration scenes.",
+      "acceptanceCriteria": [
+        "Hearts float continuously behind the main content on both scenes.",
+        "Foreground content remains readable and accessible (sufficient contrast; background elements do not obscure text/buttons).",
+        "Sparkle/glow accents are visible but subtle (not distracting or reducing performance noticeably)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/effects/FloatingHeartsBackground.tsx",
+          "operation": "create",
+          "description": "Implement an efficient, continuous animated heart background layer (using transform/opacity animations and low-cost rendering) that can be mounted behind either scene."
+        },
+        {
+          "path": "frontend/src/components/effects/SparkleOverlay.tsx",
+          "operation": "create",
+          "description": "Implement a subtle sparkle/glow overlay layer that can be composited above the heart background but below foreground content to maintain readability."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire FloatingHeartsBackground and SparkleOverlay so they run continuously behind both the Proposal and Celebration scenes."
+        },
+        {
+          "path": "frontend/public/assets/generated/valentine-hearts-bg.dim_1920x1080.png",
+          "operation": "create",
+          "description": "Add the generated background texture asset at the exact path for use by FloatingHeartsBackground."
+        },
+        {
+          "path": "frontend/public/assets/generated/valentine-sparkles-overlay.dim_1920x1080.png",
+          "operation": "create",
+          "description": "Add the generated sparkle overlay asset at the exact path for use by SparkleOverlay."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Build the Proposal scene with the exact specified headline/subtext and two buttons (YES primary with glow/animation, NO secondary playful).",
+      "acceptanceCriteria": [
+        "The Proposal scene renders the headline and subtext exactly as specified.",
+        "YES button is visually primary and has an animated/glow treatment.",
+        "NO button is visually secondary and clearly clickable (until it evades).",
+        "Both buttons are usable via touch on mobile (adequate size and spacing)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/scenes/ProposalScene.tsx",
+          "operation": "create",
+          "description": "Implement centered Proposal scene layout with exact user-facing text and two actions; use shadcn-ui Button component for YES/NO buttons with theme-appropriate variants. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Mount ProposalScene as the initial scene and pass handlers needed for YES/NO interactions and global click interactions."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Prevent completion via NO: implement evasive NO behavior and rotate through the required playful messages on NO interaction.",
+      "acceptanceCriteria": [
+        "Clicking NO never navigates to the Celebration scene.",
+        "NO click triggers an evasive state change (position/scale/visibility) in a way that is clearly noticeable.",
+        "At least the four specified messages are used as possible outputs (shown in the UI).",
+        "The experience remains functional on both mouse and touch input (NO evasive behavior works on mobile)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/scenes/ProposalScene.tsx",
+          "operation": "modify",
+          "description": "Add evasive NO behavior (randomized reposition/scale/brief hide) constrained to the scene bounds and a rotating message system that includes: \"Wrong choice 😜\", \"Try again, my love ❤️\", \"Your heart knows the answer 💕\", \"You can’t escape destiny 😌\"; ensure it works for both click and tap."
+        },
+        {
+          "path": "frontend/src/components/ui/TeasingMessageToast.tsx",
+          "operation": "create",
+          "description": "Create a lightweight, non-blocking message UI (toast/bubble) used by the Proposal scene to display playful messages without blocking the YES button."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Add global playful interactions on the Proposal scene: clicking anywhere except YES shows cute messages and triggers a short heart burst without blocking YES.",
+      "acceptanceCriteria": [
+        "Clicks/taps outside the YES button trigger a visible reaction (message + heart burst).",
+        "Repeated clicks cycle through multiple messages (not always the same line).",
+        "YES remains clickable and is not blocked by overlays or pointer-capturing effects."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/effects/HeartBurst.tsx",
+          "operation": "create",
+          "description": "Implement a short-lived heart burst/particle pop effect that can be triggered at a screen position and cleans itself up quickly to avoid performance issues."
+        },
+        {
+          "path": "frontend/src/scenes/ProposalScene.tsx",
+          "operation": "modify",
+          "description": "Implement a scene-level click/tap handler that triggers TeasingMessageToast + HeartBurst when the target is not the YES button; ensure overlays/effects use pointer-events settings so YES remains clickable."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Implement the YES flow: heart-confetti celebration and smooth transition from Proposal to Celebration, removing Proposal interactivity after transition.",
+      "acceptanceCriteria": [
+        "YES click triggers a celebratory effect (heart confetti) immediately.",
+        "A smooth transition occurs (fade/slide/zoom) into the Celebration scene without abrupt content jumps.",
+        "After transition, Proposal content is no longer visible/interactable."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/effects/HeartConfetti.tsx",
+          "operation": "create",
+          "description": "Create a heart-confetti effect (optimized, time-bounded) that can be triggered on YES and renders above the scene content without capturing pointer events."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add YES handler to trigger HeartConfetti immediately, then run a smooth scene transition (fade/romantic motion) to Celebration and disable/unmount Proposal content after the transition completes."
+        },
+        {
+          "path": "frontend/public/assets/generated/valentine-heart-confetti-sprites.dim_1024x1024.png",
+          "operation": "create",
+          "description": "Add the generated heart confetti sprite sheet asset at the exact path for use by HeartConfetti."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Build the Celebration scene with exact text, a circular glowing photo with subtle breathing/zoom animation, and the same animated heart background.",
+      "acceptanceCriteria": [
+        "The Celebration scene displays the two text lines exactly as specified.",
+        "A circular image is shown with a visible glowing border.",
+        "The photo has a subtle continuous animation that feels romantic (no harsh scaling).",
+        "Background hearts continue animating on the Celebration scene."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/scenes/CelebrationScene.tsx",
+          "operation": "create",
+          "description": "Implement centered Celebration scene with exact user-facing text, a circular photo (placeholder) with glowing border, and a gentle breathing/zoom animation consistent with the theme."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire CelebrationScene as the second scene shown after YES, ensuring shared background effects remain active."
+        },
+        {
+          "path": "frontend/public/assets/generated/valentine-photo-placeholder.dim_1024x1024.png",
+          "operation": "create",
+          "description": "Add the generated circular couple photo placeholder asset at the exact path for use in CelebrationScene."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Add cursor/touch-following heart particle trails and occasional floating love emojis with graceful reduced-motion behavior.",
+      "acceptanceCriteria": [
+        "On desktop, moving the cursor produces a visible trailing heart particle effect.",
+        "On mobile, touch/move gestures produce a similar effect where supported.",
+        "If the user has prefers-reduced-motion enabled, effects are reduced or disabled to avoid overwhelming motion."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/usePrefersReducedMotion.ts",
+          "operation": "create",
+          "description": "Add a small hook to detect prefers-reduced-motion and expose a boolean used to reduce/disable ambient effects."
+        },
+        {
+          "path": "frontend/src/components/effects/PointerHeartTrail.tsx",
+          "operation": "create",
+          "description": "Implement a pointer-following heart particle trail that supports mouse and touch inputs, throttles events for performance, and respects prefers-reduced-motion."
+        },
+        {
+          "path": "frontend/src/components/effects/FloatingLoveEmojis.tsx",
+          "operation": "create",
+          "description": "Implement occasional ambient floating love emojis with randomized timing/positions, reduced frequency or disabled under prefers-reduced-motion."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Mount PointerHeartTrail and FloatingLoveEmojis as global ambient effects across both scenes, gated by prefers-reduced-motion."
+        },
+        {
+          "path": "frontend/public/assets/generated/valentine-love-emojis.dim_512x512.png",
+          "operation": "create",
+          "description": "Add the generated love emoji icon set asset at the exact path for use by FloatingLoveEmojis."
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Add optional romantic background music with unobtrusive controls, no forced autoplay, and state persisted across the scene transition.",
+      "acceptanceCriteria": [
+        "A visible but unobtrusive music control exists on both scenes (or globally).",
+        "Music can be started/stopped by the user and respects browser autoplay policies (no broken UX if autoplay is blocked).",
+        "Music state (playing/muted) persists across the scene transition in the same session."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/audio/MusicControls.tsx",
+          "operation": "create",
+          "description": "Create an unobtrusive in-UI music controller (play/pause + mute) that manages an Audio element safely (user-initiated playback) and exposes state for persistence during scene transitions."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire MusicControls at the app level so it remains mounted across scene transitions and preserves playing/muted state within the session."
+        },
+        {
+          "path": "frontend/public/assets/audio/romantic-background.mp3",
+          "operation": "create",
+          "description": "Add a romantic background music audio file as a static asset referenced by MusicControls."
+        }
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "summary": "Add lightweight preloading and performance optimizations; keep code modular with separate components for scenes and effects.",
+      "acceptanceCriteria": [
+        "Key assets are preloaded or loaded in a way that avoids flashes/pop-in during the first scene.",
+        "Background/effects/scenes are implemented as reusable components with clear separation of concerns.",
+        "No console errors in the browser during normal use."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/index.html",
+          "operation": "modify",
+          "description": "Add preload hints for key static assets used immediately (frontend/public/assets/generated/valentine-hearts-bg.dim_1920x1080.png, frontend/public/assets/generated/valentine-sparkles-overlay.dim_1920x1080.png, and optional frontend/public/assets/audio/romantic-background.mp3) to reduce first-interaction pop-in."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Ensure clean modular composition (scenes + effect components), avoid unnecessary re-renders (memoization where appropriate), and add a small in-app preloader to warm critical images before first interaction without blocking input."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Add reduced-motion fallbacks via CSS media queries and ensure animations use GPU-friendly properties; ensure no global styles introduce overflow/scroll-jank."
+        }
+      ]
+    }
+  ]
+}

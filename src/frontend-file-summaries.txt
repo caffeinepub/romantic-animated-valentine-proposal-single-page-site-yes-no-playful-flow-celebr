@@ -1,0 +1,18 @@
+{
+  "frontend/src/App.tsx": "Main application component managing scene state (proposal/celebration), coordinating all background effects, confetti, ambient animations, and music controls with smooth transitions between scenes.",
+  "frontend/src/scenes/ProposalScene.tsx": "Proposal scene with headline, subtext, YES/NO buttons implementing playful evasive NO behavior, teasing messages, global click interactions with heart bursts, and YES handler (fixed import path for TeasingMessageToast).",
+  "frontend/src/scenes/CelebrationScene.tsx": "Celebration scene displaying success message, circular photo with glowing animated border, and romantic text after YES is clicked.",
+  "frontend/src/components/effects/FloatingHeartsBackground.tsx": "Canvas-based continuous floating hearts background animation using efficient transform-based rendering for both scenes, with properly initialized useRef for animation frame tracking.",
+  "frontend/src/components/effects/SparkleOverlay.tsx": "Canvas-based subtle sparkle overlay with twinkling star effects that fade in and out for magical atmosphere, with properly initialized useRef for animation frame tracking.",
+  "frontend/src/components/effects/HeartBurst.tsx": "Short-lived heart particle burst effect triggered on global clicks, with physics-based animation and auto-cleanup.",
+  "frontend/src/components/effects/HeartConfetti.tsx": "Celebratory heart confetti animation triggered on YES click with gravity physics and multiple colored hearts.",
+  "frontend/src/components/effects/PointerHeartTrail.tsx": "Cursor/touch-following heart trail effect that creates trailing hearts on pointer movement, respecting reduced motion preferences, with properly initialized useRef for animation frame tracking.",
+  "frontend/src/components/effects/FloatingLoveEmojis.tsx": "Ambient floating love emoji effects that randomly appear and float upward across the screen, respecting reduced motion preferences.",
+  "frontend/src/components/ui/TeasingMessageToast.tsx": "Non-blocking toast component for displaying playful teasing messages with bounce-in animation at configurable positions.",
+  "frontend/src/components/audio/MusicControls.tsx": "Unobtrusive music player controls with play/pause and mute buttons, managing background romantic music with user-initiated playback.",
+  "frontend/src/hooks/usePrefersReducedMotion.ts": "React hook detecting user's prefers-reduced-motion setting to gracefully disable or reduce animations for accessibility.",
+  "frontend/src/index.css": "Global styles with romantic Valentine color palette (OKLCH), custom animations (float, glow, breathe, fade), typography (Dancing Script cursive + Inter), and romantic visual effects.",
+  "frontend/tailwind.config.js": "Tailwind configuration extended with romantic color tokens, Dancing Script font family, and custom keyframe animations for all romantic effects.",
+  "frontend/index.html": "HTML entry point with preloaded fonts (Dancing Script, Inter), preloaded critical images, and updated romantic title.",
+  "frontend/src/components/TeasingMessageToast.tsx": "Non-blocking toast component for displaying playful teasing messages with bounce-in animation at configurable positions (moved from ui subdirectory to components root)."
+}

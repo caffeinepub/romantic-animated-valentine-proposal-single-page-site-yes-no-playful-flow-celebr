@@ -1,0 +1,199 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-a-single-page-fully-responsive-valentine-proposal-experience-with-a-soft-dreamy-romantic-aesthetic-pastel-pink-red-palette-glow-effects-sparkles-smooth-animations-and-a-cute-modern-ui-use-a-typography-pairing-of-a-romantic-cursive-headline-font-plus-a-clean-modern-body-font-applied-consistently-across-the-site",
+      "featureTitle": "Create a single-page, fully responsive Valentine proposal experience with a soft dreamy romantic aesthetic: pastel pink/red palette, glow effects, sparkles, smooth animations, and a cute modern UI. Use a typography pairing of a romantic cursive headline font plus a clean modern body font, applied consistently across the site.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-an-animated-floating-hearts-background-that-runs-continuously-on-both-the-proposal-scene-and-the-celebration-scene-add-additional-subtle-sparkles-glow-accents-to-support-a-magical-love-focused-atmosphere",
+      "featureTitle": "Implement an animated floating-hearts background that runs continuously on both the Proposal scene and the Celebration scene. Add additional subtle sparkles/glow accents to support a magical, love-focused atmosphere.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/effects/FloatingHeartsBackground.tsx",
+        "frontend/src/components/effects/SparkleOverlay.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-the-proposal-scene-with-centered-content-and-exact-user-facing-text-headline-will-you-be-my-valentine-subtext-i-choose-you-today-tomorrow-always-include-two-buttons-yes-primary-glowing-animated-attractive-and-no-secondary-playful",
+      "featureTitle": "Build the Proposal scene with centered content and exact user-facing text:\n- Headline: \"Will you be my Valentine? ❤️\"\n- Subtext: \"I choose you. Today, tomorrow, always.\"\nInclude two buttons: \"YES 💖\" (primary, glowing/animated/attractive) and \"NO 💔\" (secondary, playful).",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/scenes/ProposalScene.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-playful-prevention-logic-so-the-user-cannot-complete-the-experience-without-clicking-the-yes-button-clicking-no-must-trigger-evasive-behavior-e-g-move-away-resize-disappear-briefly-or-relocate-randomly-and-or-show-teasing-romantic-messages-provide-a-rotating-set-of-playful-messages-including-wrong-choice-try-again-my-love-your-heart-knows-the-answer-you-can-t-escape-destiny",
+      "featureTitle": "Implement playful prevention logic so the user cannot complete the experience without clicking the YES button:\n- Clicking \"NO 💔\" must trigger evasive behavior (e.g., move away, resize, disappear briefly, or relocate randomly) and/or show teasing romantic messages.\n- Provide a rotating set of playful messages including:\n  - \"Wrong choice 😜\"\n  - \"Try again, my love ❤️\"\n  - \"Your heart knows the answer 💕\"\n  - \"You can’t escape destiny 😌\"",
+      "files": [
+        "frontend/src/scenes/ProposalScene.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-global-playful-interactions-on-the-proposal-scene-clicking-anywhere-that-is-not-the-yes-button-should-trigger-cute-teasing-romantic-messages-and-a-short-burst-of-additional-floating-hearts-or-similar-heart-particle-burst-ensure-these-interactions-do-not-interfere-with-the-ability-to-click-yes",
+      "featureTitle": "Add global playful interactions on the Proposal scene: clicking anywhere that is not the YES button should trigger cute/teasing romantic messages and a short burst of additional floating hearts (or similar heart particle burst). Ensure these interactions do not interfere with the ability to click YES.",
+      "files": [
+        "frontend/src/components/effects/HeartBurst.tsx",
+        "frontend/src/scenes/ProposalScene.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-the-yes-flow-clicking-yes-triggers-confetti-hearts-and-a-smooth-scene-transition-fade-and-or-romantic-motion-transition-from-the-proposal-scene-into-the-celebration-scene",
+      "featureTitle": "Implement the YES flow: clicking \"YES 💖\" triggers confetti hearts and a smooth scene transition (fade and/or romantic motion transition) from the Proposal scene into the Celebration scene.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/effects/HeartConfetti.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-the-celebration-scene-with-the-same-animated-heart-background-and-the-following-centered-content-text-above-she-said-yes-a-central-circular-photo-with-a-glowing-border-and-a-subtle-continuous-zoom-in-or-gentle-breathing-animation-text-below-my-forever-valentine",
+      "featureTitle": "Build the Celebration scene with the same animated heart background and the following centered content:\n- Text above: \"She said YES 💍❤️\"\n- A central circular photo with a glowing border and a subtle continuous zoom-in (or gentle breathing) animation\n- Text below: \"My forever Valentine 💕\"",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/scenes/CelebrationScene.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-cursor-touch-following-heart-particle-effects-and-occasional-floating-love-emojis-as-ambient-effects-effects-must-work-on-both-desktop-mouse-and-mobile-touch-and-degrade-gracefully-when-reduced-motion-is-preferred",
+      "featureTitle": "Add cursor/touch-following heart particle effects and occasional floating love emojis as ambient effects. Effects must work on both desktop (mouse) and mobile (touch) and degrade gracefully when reduced motion is preferred.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/effects/FloatingLoveEmojis.tsx",
+        "frontend/src/components/effects/PointerHeartTrail.tsx",
+        "frontend/src/hooks/usePrefersReducedMotion.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-8"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-optional-soft-romantic-background-music-support-include-an-audio-file-in-static-assets-and-provide-unobtrusive-in-ui-controls-play-pause-and-mute-default-behavior-should-be-respectful-do-not-auto-play-if-the-browser-blocks-it-allow-the-user-to-start-music-with-a-tap-click",
+      "featureTitle": "Add optional soft romantic background music support: include an audio file in static assets and provide unobtrusive in-UI controls (play/pause and mute). Default behavior should be respectful: do not auto-play if the browser blocks it; allow the user to start music with a tap/click.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/audio/MusicControls.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-9"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-lightweight-preloading-and-performance-optimizations-for-smooth-first-interaction-preload-key-assets-fonts-generated-images-optional-audio-and-ensure-animations-are-efficient-keep-code-structure-clean-and-modular-separate-components-for-background-effects-scenes",
+      "featureTitle": "Add lightweight preloading and performance optimizations for smooth first interaction: preload key assets (fonts, generated images, optional audio) and ensure animations are efficient. Keep code structure clean and modular (separate components for background/effects/scenes).",
+      "files": [
+        "frontend/index.html",
+        "frontend/src/App.tsx",
+        "frontend/src/index.css"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-10"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

@@ -1,0 +1,242 @@
+{
+  "kind": "build_request",
+  "title": "Romantic animated Valentine proposal single-page site (YES/NO playful flow + celebration scene)",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a single-page, fully responsive Valentine proposal experience with a soft dreamy romantic aesthetic: pastel pink/red palette, glow effects, sparkles, smooth animations, and a cute modern UI. Use a typography pairing of a romantic cursive headline font plus a clean modern body font, applied consistently across the site.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Create a romantic animated Valentine proposal website with a soft, dreamy, loveable aesthetic.",
+          "Soft pink/red/pastel color palette",
+          "Smooth animations, glow effects, sparkles",
+          "Lovely typography (romantic cursive + clean modern font)",
+          "Mobile + desktop responsive"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Layout looks polished on common mobile widths (e.g., 360–430px) and desktop widths (>=1024px) with no overflow/overlap issues.",
+        "All screens share a consistent palette, typography, spacing, and animation style (dreamy/romantic).",
+        "Animations are smooth and do not cause obvious jank on typical devices (avoid excessive reflows; prefer transform/opacity animations)."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Implement an animated floating-hearts background that runs continuously on both the Proposal scene and the Celebration scene. Add additional subtle sparkles/glow accents to support a magical, love-focused atmosphere.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Floating animated hearts background",
+          "Continuous floating hearts animation",
+          "Sparkle effects",
+          "Soft glow animation"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Hearts float continuously behind the main content on both scenes.",
+        "Foreground content remains readable and accessible (sufficient contrast; background elements do not obscure text/buttons).",
+        "Sparkle/glow accents are visible but subtle (not distracting or reducing performance noticeably)."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Build the Proposal scene with centered content and exact user-facing text:\n- Headline: \"Will you be my Valentine? ❤️\"\n- Subtext: \"I choose you. Today, tomorrow, always.\"\nInclude two buttons: \"YES 💖\" (primary, glowing/animated/attractive) and \"NO 💔\" (secondary, playful).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Main Screen (Proposal Page):",
+          "“Will you be my Valentine? ❤️”",
+          "“I choose you. Today, tomorrow, always.”",
+          "YES 💖 (primary button – glowing, animated, attractive)",
+          "NO 💔 (secondary button – playful)"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The Proposal scene renders the headline and subtext exactly as specified.",
+        "YES button is visually primary and has an animated/glow treatment.",
+        "NO button is visually secondary and clearly clickable (until it evades).",
+        "Both buttons are usable via touch on mobile (adequate size and spacing)."
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Implement playful prevention logic so the user cannot complete the experience without clicking the YES button:\n- Clicking \"NO 💔\" must trigger evasive behavior (e.g., move away, resize, disappear briefly, or relocate randomly) and/or show teasing romantic messages.\n- Provide a rotating set of playful messages including:\n  - \"Wrong choice 😜\"\n  - \"Try again, my love ❤️\"\n  - \"Your heart knows the answer 💕\"\n  - \"You can’t escape destiny 😌\"",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "The user should never be able to finish without clicking YES",
+          "When user clicks NO: Button should move away, resize, disappear, or relocate randomly OR show playful romantic messages like: “Wrong choice 😜” “Try again, my love ❤️” “Your heart knows the answer 💕” “You can’t escape destiny 😌”"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Clicking NO never navigates to the Celebration scene.",
+        "NO click triggers an evasive state change (position/scale/visibility) in a way that is clearly noticeable.",
+        "At least the four specified messages are used as possible outputs (shown in the UI).",
+        "The experience remains functional on both mouse and touch input (NO evasive behavior works on mobile)."
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Add global playful interactions on the Proposal scene: clicking anywhere that is not the YES button should trigger cute/teasing romantic messages and a short burst of additional floating hearts (or similar heart particle burst). Ensure these interactions do not interfere with the ability to click YES.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Clicking anywhere else (except YES) should trigger: Cute messages Floating hearts animation Sweet teasing text Romantic encouragements"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Clicks/taps outside the YES button trigger a visible reaction (message + heart burst).",
+        "Repeated clicks cycle through multiple messages (not always the same line).",
+        "YES remains clickable and is not blocked by overlays or pointer-capturing effects."
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Implement the YES flow: clicking \"YES 💖\" triggers confetti hearts and a smooth scene transition (fade and/or romantic motion transition) from the Proposal scene into the Celebration scene.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "YES Button Action: Smooth transition animation Screen fades into a second romantic scene",
+          "Confetti hearts on YES click",
+          "Smooth page transitions"
+        ]
+      },
+      "acceptanceCriteria": [
+        "YES click triggers a celebratory effect (heart confetti) immediately.",
+        "A smooth transition occurs (fade/slide/zoom) into the Celebration scene without abrupt content jumps.",
+        "After transition, Proposal content is no longer visible/interactable."
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Build the Celebration scene with the same animated heart background and the following centered content:\n- Text above: \"She said YES 💍❤️\"\n- A central circular photo with a glowing border and a subtle continuous zoom-in (or gentle breathing) animation\n- Text below: \"My forever Valentine 💕\"",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Second Screen (Celebration Page):",
+          "Text above: “She said YES 💍❤️”",
+          "Our photo in the center (circular frame with glowing border)",
+          "Text below: “My forever Valentine 💕”",
+          "Subtle zoom-in animation on photo"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The Celebration scene displays the two text lines exactly as specified.",
+        "A circular image is shown with a visible glowing border.",
+        "The photo has a subtle continuous animation that feels romantic (no harsh scaling).",
+        "Background hearts continue animating on the Celebration scene."
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Add cursor/touch-following heart particle effects and occasional floating love emojis as ambient effects. Effects must work on both desktop (mouse) and mobile (touch) and degrade gracefully when reduced motion is preferred.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Heart particles following cursor/touch",
+          "Floating love emojis"
+        ]
+      },
+      "acceptanceCriteria": [
+        "On desktop, moving the cursor produces a visible trailing heart particle effect.",
+        "On mobile, touch/move gestures produce a similar effect where supported.",
+        "If the user has prefers-reduced-motion enabled, effects are reduced or disabled to avoid overwhelming motion."
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "text": "Add optional soft romantic background music support: include an audio file in static assets and provide unobtrusive in-UI controls (play/pause and mute). Default behavior should be respectful: do not auto-play if the browser blocks it; allow the user to start music with a tap/click.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Soft romantic background music (optional)"
+        ]
+      },
+      "acceptanceCriteria": [
+        "A visible but unobtrusive music control exists on both scenes (or globally).",
+        "Music can be started/stopped by the user and respects browser autoplay policies (no broken UX if autoplay is blocked).",
+        "Music state (playing/muted) persists across the scene transition in the same session."
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "text": "Add lightweight preloading and performance optimizations for smooth first interaction: preload key assets (fonts, generated images, optional audio) and ensure animations are efficient. Keep code structure clean and modular (separate components for background/effects/scenes).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Preload animations",
+          "Performance optimized",
+          "Clean modern code structure"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Key assets are preloaded or loaded in a way that avoids flashes/pop-in during the first scene.",
+        "Background/effects/scenes are implemented as reusable components with clear separation of concerns.",
+        "No console errors in the browser during normal use."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not edit files under frontend/src/components/ui (compose shadcn components instead).",
+    "Do not edit immutable hook/bootstrapping files: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx.",
+    "Backend must remain a single Motoko actor if used; do not introduce additional backend services."
+  ],
+  "nonGoals": [
+    "User authentication (Internet Identity) or user accounts.",
+    "Server-side storage of uploaded photos or music.",
+    "Multi-page routing; the experience should remain a single-page flow with scene transitions.",
+    "External analytics, ads, social integrations, or third-party APIs."
+  ],
+  "imageRequirements": {
+    "required": [
+      "Soft pastel floating hearts background texture (valentine-hearts-bg.dim_1920x1080.png)",
+      "Romantic sparkle overlay (valentine-sparkles-overlay.dim_1920x1080.png)",
+      "Circular couple photo placeholder (valentine-photo-placeholder.dim_1024x1024.png)",
+      "Heart confetti sprite sheet with multiple heart shapes (valentine-heart-confetti-sprites.dim_1024x1024.png)",
+      "Small floating love emoji icon set (valentine-love-emojis.dim_512x512.png)"
+    ],
+    "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
+  }
+}

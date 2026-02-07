@@ -1,0 +1,281 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-06T17:40:51.998Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 10,
+    "implemented": 10,
+    "items": [
+      {
+        "id": "REQ-1",
+        "summary": "Create a single-page, fully responsive Valentine proposal experience with a soft dreamy romantic aesthetic: pastel pink/red palette, glow effects, sparkles, smooth animations, and a cute modern UI. Use a typography pairing of a romantic cursive headline font plus a clean modern body font, applied consistently across the site.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/App.tsx",
+          "frontend/src/index.css",
+          "frontend/tailwind.config.js"
+        ],
+        "matchedFiles": [
+          "frontend/src/App.tsx",
+          "frontend/src/index.css",
+          "frontend/tailwind.config.js"
+        ]
+      },
+      {
+        "id": "REQ-10",
+        "summary": "Add lightweight preloading and performance optimizations for smooth first interaction: preload key assets (fonts, generated images, optional audio) and ensure animations are efficient. Keep code structure clean and modular (separate components for background/effects/scenes).",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/index.html",
+          "frontend/src/App.tsx",
+          "frontend/src/index.css"
+        ],
+        "matchedFiles": [
+          "frontend/index.html",
+          "frontend/src/App.tsx",
+          "frontend/src/index.css"
+        ]
+      },
+      {
+        "id": "REQ-2",
+        "summary": "Implement an animated floating-hearts background that runs continuously on both the Proposal scene and the Celebration scene. Add additional subtle sparkles/glow accents to support a magical, love-focused atmosphere.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/effects/FloatingHeartsBackground.tsx",
+          "frontend/src/components/effects/SparkleOverlay.tsx",
+          "frontend/src/App.tsx",
+          "frontend/public/assets/generated/valentine-hearts-bg.dim_1920x1080.png",
+          "frontend/public/assets/generated/valentine-sparkles-overlay.dim_1920x1080.png"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/effects/FloatingHeartsBackground.tsx",
+          "frontend/src/components/effects/SparkleOverlay.tsx",
+          "frontend/src/App.tsx",
+          "frontend/public/assets/generated/valentine-hearts-bg.dim_1920x1080.png",
+          "frontend/public/assets/generated/valentine-sparkles-overlay.dim_1920x1080.png"
+        ]
+      },
+      {
+        "id": "REQ-3",
+        "summary": "Build the Proposal scene with centered content and exact user-facing text:\n- Headline: \"Will you be my Valentine? ❤️\"\n- Subtext: \"I choose you. Today, tomorrow, always.\"\nInclude two buttons: \"YES 💖\" (primary, glowing/animated/attractive) and \"NO 💔\" (secondary, playful).",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/scenes/ProposalScene.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/scenes/ProposalScene.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-4",
+        "summary": "Implement playful prevention logic so the user cannot complete the experience without clicking the YES button:\n- Clicking \"NO 💔\" must trigger evasive behavior (e.g., move away, resize, disappear briefly, or relocate randomly) and/or show teasing romantic messages.\n- Provide a rotating set of playful messages including:\n  - \"Wrong choice 😜\"\n  - \"Try again, my love ❤️\"\n  - \"Your heart knows the answer 💕\"\n  - \"You can’t escape destiny 😌\"",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/scenes/ProposalScene.tsx",
+          "frontend/src/components/ui/TeasingMessageToast.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/scenes/ProposalScene.tsx",
+          "frontend/src/components/ui/TeasingMessageToast.tsx"
+        ]
+      },
+      {
+        "id": "REQ-5",
+        "summary": "Add global playful interactions on the Proposal scene: clicking anywhere that is not the YES button should trigger cute/teasing romantic messages and a short burst of additional floating hearts (or similar heart particle burst). Ensure these interactions do not interfere with the ability to click YES.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/effects/HeartBurst.tsx",
+          "frontend/src/scenes/ProposalScene.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/effects/HeartBurst.tsx",
+          "frontend/src/scenes/ProposalScene.tsx"
+        ]
+      },
+      {
+        "id": "REQ-6",
+        "summary": "Implement the YES flow: clicking \"YES 💖\" triggers confetti hearts and a smooth scene transition (fade and/or romantic motion transition) from the Proposal scene into the Celebration scene.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/effects/HeartConfetti.tsx",
+          "frontend/src/App.tsx",
+          "frontend/public/assets/generated/valentine-heart-confetti-sprites.dim_1024x1024.png"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/effects/HeartConfetti.tsx",
+          "frontend/src/App.tsx",
+          "frontend/public/assets/generated/valentine-heart-confetti-sprites.dim_1024x1024.png"
+        ]
+      },
+      {
+        "id": "REQ-7",
+        "summary": "Build the Celebration scene with the same animated heart background and the following centered content:\n- Text above: \"She said YES 💍❤️\"\n- A central circular photo with a glowing border and a subtle continuous zoom-in (or gentle breathing) animation\n- Text below: \"My forever Valentine 💕\"",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/scenes/CelebrationScene.tsx",
+          "frontend/src/App.tsx",
+          "frontend/public/assets/generated/valentine-photo-placeholder.dim_1024x1024.png"
+        ],
+        "matchedFiles": [
+          "frontend/src/scenes/CelebrationScene.tsx",
+          "frontend/src/App.tsx",
+          "frontend/public/assets/generated/valentine-photo-placeholder.dim_1024x1024.png"
+        ]
+      },
+      {
+        "id": "REQ-8",
+        "summary": "Add cursor/touch-following heart particle effects and occasional floating love emojis as ambient effects. Effects must work on both desktop (mouse) and mobile (touch) and degrade gracefully when reduced motion is preferred.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/hooks/usePrefersReducedMotion.ts",
+          "frontend/src/components/effects/PointerHeartTrail.tsx",
+          "frontend/src/components/effects/FloatingLoveEmojis.tsx",
+          "frontend/src/App.tsx",
+          "frontend/public/assets/generated/valentine-love-emojis.dim_512x512.png"
+        ],
+        "matchedFiles": [
+          "frontend/src/hooks/usePrefersReducedMotion.ts",
+          "frontend/src/components/effects/PointerHeartTrail.tsx",
+          "frontend/src/components/effects/FloatingLoveEmojis.tsx",
+          "frontend/src/App.tsx",
+          "frontend/public/assets/generated/valentine-love-emojis.dim_512x512.png"
+        ]
+      },
+      {
+        "id": "REQ-9",
+        "summary": "Add optional soft romantic background music support: include an audio file in static assets and provide unobtrusive in-UI controls (play/pause and mute). Default behavior should be respectful: do not auto-play if the browser blocks it; allow the user to start music with a tap/click.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/audio/MusicControls.tsx",
+          "frontend/src/App.tsx",
+          "frontend/public/assets/audio/romantic-background.mp3"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/audio/MusicControls.tsx",
+          "frontend/src/App.tsx"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "backend/main.mo",
+    "build-request.json",
+    "build-template/Dockerfile",
+    "build-template/LICENSE",
+    "build-template/README.md",
+    "build-template/deploy.sh",
+    "build-template/icp.yaml",
+    "build-template/package.json",
+    "build-template/pnpm-lock.yaml",
+    "build-template/pnpm-workspace.yaml",
+    "build-template/scripts/prune-unused-images.js",
+    "build-template/scripts/resize-images.js",
+    "build-template/src/backend/canister.yaml",
+    "build-template/src/backend/system-idl/aaaaa-aa.did",
+    "build-template/src/frontend/canister.yaml",
+    "build-template/src/frontend/components.json",
+    "build-template/src/frontend/env.json",
+    "build-template/src/frontend/eslint-rules/no-bigint-in-query-keys.js",
+    "build-template/src/frontend/eslint-rules/require-internet-identity-provider.js",
+    "build-template/src/frontend/eslint.config.js",
+    "build-template/src/frontend/package.json",
+    "build-template/src/frontend/postcss.config.js",
+    "build-template/src/frontend/src/components/ui/accordion.tsx",
+    "build-template/src/frontend/src/components/ui/alert-dialog.tsx",
+    "build-template/src/frontend/src/components/ui/alert.tsx",
+    "build-template/src/frontend/src/components/ui/aspect-ratio.tsx",
+    "build-template/src/frontend/src/components/ui/avatar.tsx",
+    "build-template/src/frontend/src/components/ui/badge.tsx",
+    "build-template/src/frontend/src/components/ui/breadcrumb.tsx",
+    "build-template/src/frontend/src/components/ui/button.tsx",
+    "build-template/src/frontend/src/components/ui/calendar.tsx",
+    "build-template/src/frontend/src/components/ui/card.tsx",
+    "build-template/src/frontend/src/components/ui/carousel.tsx",
+    "build-template/src/frontend/src/components/ui/chart.tsx",
+    "build-template/src/frontend/src/components/ui/checkbox.tsx",
+    "build-template/src/frontend/src/components/ui/collapsible.tsx",
+    "build-template/src/frontend/src/components/ui/command.tsx",
+    "build-template/src/frontend/src/components/ui/context-menu.tsx",
+    "build-template/src/frontend/src/components/ui/dialog.tsx",
+    "build-template/src/frontend/src/components/ui/drawer.tsx",
+    "build-template/src/frontend/src/components/ui/dropdown-menu.tsx",
+    "build-template/src/frontend/src/components/ui/form.tsx",
+    "build-template/src/frontend/src/components/ui/hover-card.tsx",
+    "build-template/src/frontend/src/components/ui/input-otp.tsx",
+    "build-template/src/frontend/src/components/ui/input.tsx",
+    "build-template/src/frontend/src/components/ui/label.tsx",
+    "build-template/src/frontend/src/components/ui/menubar.tsx",
+    "build-template/src/frontend/src/components/ui/navigation-menu.tsx",
+    "build-template/src/frontend/src/components/ui/pagination.tsx",
+    "build-template/src/frontend/src/components/ui/popover.tsx",
+    "build-template/src/frontend/src/components/ui/progress.tsx",
+    "build-template/src/frontend/src/components/ui/radio-group.tsx",
+    "build-template/src/frontend/src/components/ui/resizable.tsx",
+    "build-template/src/frontend/src/components/ui/scroll-area.tsx",
+    "build-template/src/frontend/src/components/ui/select.tsx",
+    "build-template/src/frontend/src/components/ui/separator.tsx",
+    "build-template/src/frontend/src/components/ui/sheet.tsx",
+    "build-template/src/frontend/src/components/ui/sidebar.tsx",
+    "build-template/src/frontend/src/components/ui/skeleton.tsx",
+    "build-template/src/frontend/src/components/ui/slider.tsx",
+    "build-template/src/frontend/src/components/ui/sonner.tsx",
+    "build-template/src/frontend/src/components/ui/switch.tsx",
+    "build-template/src/frontend/src/components/ui/table.tsx",
+    "build-template/src/frontend/src/components/ui/tabs.tsx",
+    "build-template/src/frontend/src/components/ui/textarea.tsx",
+    "build-template/src/frontend/src/components/ui/toggle-group.tsx",
+    "build-template/src/frontend/src/components/ui/toggle.tsx",
+    "build-template/src/frontend/src/components/ui/tooltip.tsx",
+    "build-template/src/frontend/src/hooks/use-mobile.tsx",
+    "build-template/src/frontend/src/lib/utils.ts",
+    "build-template/src/frontend/tsconfig.json",
+    "build-template/src/frontend/vite.config.js",
+    "build-template/tsconfig.json",
+    "caffeine.lock.json",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/index.css",
+    "frontend/index.html",
+    "frontend/public/assets/generated/valentine-heart-confetti-sprites.dim_1024x1024.png",
+    "frontend/public/assets/generated/valentine-hearts-bg.dim_1920x1080.png",
+    "frontend/public/assets/generated/valentine-love-emojis.dim_512x512.png",
+    "frontend/public/assets/generated/valentine-photo-placeholder.dim_1024x1024.png",
+    "frontend/public/assets/generated/valentine-sparkles-overlay.dim_1920x1080.png",
+    "frontend/src/App.tsx",
+    "frontend/src/backend.d.ts",
+    "frontend/src/backend.ts",
+    "frontend/src/components/TeasingMessageToast.tsx",
+    "frontend/src/components/audio/MusicControls.tsx",
+    "frontend/src/components/effects/FloatingHeartsBackground.tsx",
+    "frontend/src/components/effects/FloatingLoveEmojis.tsx",
+    "frontend/src/components/effects/HeartBurst.tsx",
+    "frontend/src/components/effects/HeartConfetti.tsx",
+    "frontend/src/components/effects/PointerHeartTrail.tsx",
+    "frontend/src/components/effects/SparkleOverlay.tsx",
+    "frontend/src/components/ui/TeasingMessageToast.tsx",
+    "frontend/src/config.ts",
+    "frontend/src/declarations/backend.did.d.ts",
+    "frontend/src/declarations/backend.did.js",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/hooks/usePrefersReducedMotion.ts",
+    "frontend/src/index.css",
+    "frontend/src/main.tsx",
+    "frontend/src/scenes/CelebrationScene.tsx",
+    "frontend/src/scenes/ProposalScene.tsx",
+    "frontend/src/ui-summary.json",
+    "frontend/src/utils/StorageClient.ts",
+    "frontend/tailwind.config.js",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}
